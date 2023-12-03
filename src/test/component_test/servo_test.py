@@ -4,6 +4,7 @@ import selemod
 import time 
 import RPi.GPIO as gpio 
 
+pin_esc = 18
 pin_servo_1 = 12
 freq_esc = 50 
 freq_servo = 50 
