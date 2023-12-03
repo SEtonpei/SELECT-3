@@ -1,5 +1,5 @@
 import sys
-sys.path.append('../library/')
+sys.path.append('../../library/')
 from selemod import E2S
 from time import sleep, time
 import time
