@@ -41,15 +41,28 @@ class Resilience:
 
         # pin setup 
         self.pin_esc = 18 
-        self.pin_servo_1 = 23 
+        self.pin_servo = 12
+        self.pin_esc_raspi = 13 
+        self.pin_servo_raspi = 19
+        # Trigger raspii
+        self.trig_raspi = 5
+        self.trig_led = 26
+
         # e2s pin setup 
         self.pin_e2s_top = 16 
         self.pin_e2s_bottom = 20 
+        #self.pin_micro_sw_top = 16 
+        #self.pin_micro_sw_bottom = 20 
         # emergency switch pin setup 
         self.pin_em_sw = 21
+
         # remote operation (TWILITE) pin setup 
-        self.pin_remote_actuate = 27
-        self.pin_remote_stop    = 26
+        self.digital_in_1 = 17
+        self.digital_in_2 = 27
+        #self.digital_out_1 = 23
+        #self.digital_out_2 = 24
+        self.pin_remote_actuate = 23
+        self.pin_remote_stop    = 24
         # rotary encoder counter IC pin setup 
         self.pin_rst = 25
         self.pin_int = 12
@@ -74,7 +87,7 @@ class Resilience:
 
 
         # instantiation 
-        self.actu = liftmod.Actuator(pin_esc=self.pin_esc, pin_servo_1=self.pin_servo_1, 
+        self.actu = liftmod.Actuator(pin_esc=self.pin_esc, pin_servo=self.pin_servo, 
                         freq_esc=self.freq_esc, freq_servo=self.freq_servo, 
                         brakeoff_duty=self.brakeoff_duty, brakeon_duty=self.brakeon_duty) 
         self.e2s = E2S(self.pin_e2s_top, self.pin_e2s_bottom) 
