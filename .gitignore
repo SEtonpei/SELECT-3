@@ -1,0 +1,7 @@
+.env/
+*.pyc
+*.swp
+*.csv
+*.ini
+*.pptx
+ref/
