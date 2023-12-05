@@ -79,6 +79,8 @@ class Resilience:
         self.throttle_D = -10 # if heli-mode cannot be used, use low rpm throttle instead  
 
         # instantiation 
+        print("pin_servo: %.1f\n" %self.pin_servo)
+
         self.actu = selemod.Actuator(pin_esc=self.pin_esc, pin_servo=self.pin_servo, 
                         freq_esc=self.freq_esc, freq_servo=self.freq_servo, 
                         brakeoff_duty=self.brakeoff_duty, brakeon_duty=self.brakeon_duty) 

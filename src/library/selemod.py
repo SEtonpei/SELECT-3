@@ -10,12 +10,12 @@ import spidev
 
 class Actuator:
 
-    def __init__(self, pin_esc:int, pin_servo_1:int, freq_esc:int, freq_servo:int,
+    def __init__(self, pin_esc:int, pin_servo:int, freq_esc:int, freq_servo:int,
                 brakeon_duty:float, brakeoff_duty:float):
 
         """
         pin_esc: pin number in BCM(The number of xx of GPIOxx) connected with a ESC's signal line
-        pin_servo_1: pin number in BCM connected with a signal line of a servo
+        pin_servo: pin number in BCM connected with a signal line of a servo
         freq_esc[Hz]: frequency of signals to ESC
         freq_servo[Hz]: frequency of signals to servo
         brakeon_duty: duty to brake on
@@ -32,7 +32,7 @@ class Actuator:
         self.pin_esc = pin_esc
         self.freq_esc = freq_esc
         self.freq_servo  = freq_servo
-        self.pin_servo_1 = pin_servo_1
+        self.pin_servo = pin_servo
         self.brakeon_duty = brakeon_duty
         self.brakeoff_duty = brakeoff_duty
         self.decrease_rate = 0.1
@@ -82,9 +82,9 @@ class Actuator:
         gpio.setwarnings(False)
         gpio.setmode(gpio.BCM)      
         gpio.setup(self.pin_esc, gpio.OUT)
-        gpio.setup(self.pin_servo_1, gpio.OUT)    
+        gpio.setup(self.pin_servo, gpio.OUT)    
         self.esc = gpio.PWM(self.pin_esc, freq_esc)
-        self.ser_1 = gpio.PWM(self.pin_servo_1, freq_servo)
+        self.ser_1 = gpio.PWM(self.pin_servo, freq_servo)
         self.esc.start(0)
         self.ser_1.start(self.brakeon_duty)
     
@@ -355,7 +355,7 @@ class Actuator:
         """
         print('デストラクタの呼び出し')
         del self.pin_esc
-        del self.pin_servo_1 
+        del self.pin_servo 
         # del self.pin_servo_2
         del self.throttle_a0
         del self.throttle_a1
