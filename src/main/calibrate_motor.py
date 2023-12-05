@@ -1,5 +1,5 @@
 import sys
-sys.path.append('../../library/')
+sys.path.append('../ibrary/')
 from selemod import Actuator
 import sys 
 
