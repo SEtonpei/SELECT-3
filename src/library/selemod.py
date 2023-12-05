@@ -112,7 +112,7 @@ class Actuator:
             self.esc.ChangeDutyCycle(self.default_duty)
             sleep(3)
            
-            print("Is the motor silent? y/n")
+            print("Did the motor beep melody? y/n")
             yesorno = input()
             if yesorno == 'y':
                 print("Calibration has completed.")
