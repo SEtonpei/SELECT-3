@@ -1,5 +1,5 @@
 import sys
-sys.path.append('../library/')
+sys.path.append('../../library/')
 from selemod import Actuator
 import sys 
 
@@ -19,22 +19,5 @@ actu = Actuator(pin_esc=pin_esc, pin_servo_1=pin_servo_1,
                 brakeon_duty=brakeon_duty, brakeoff_duty=brakeoff_duty)
 
 
-while True: 
-    try: 
-        print('Want to calibrate esc? (y/n)')
-        inp = input()
-        if inp == "y":
-            actu.calibrate_esc()
-            break
-        elif inp == "n": 
-            actu.set_default_throttle()
-            input("Press Enter to move another operation...")
-            break
-        else:
-            print('Please input y or n.')
-            
-    except KeyboardInterrupt: 
-        print("Aborting the sequence")
-        sys.exit()
-
+actu.calibrate_esc()
 
