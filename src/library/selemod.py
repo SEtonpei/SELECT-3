@@ -93,19 +93,25 @@ class Actuator:
         ESC needs calibration when connecting transmitter to ESC for the first time.
         """ 
 
-        print("initializing esc, remove battery...")
+        print("initializing esc, remove battery or turn the switch off...")
         
 
         self.esc.ChangeDutyCycle(self.max_duty)
         print("\nsetting esc max pulse\n")
         print("Maximum duty ratio: %.1f\n" %self.max_duty)
 
-        print("connect battery. Press Enter after the beep.")
+        print("connect battery and turn the switch ON.")
         inp = input()
         if inp == '':
+            print("Wait for 10 seconds.")
+            sleep(10)
+            print("Minimum duty ratio: %.1f\n" %self.min_duty)
+            self.esc.ChangeDutyCycle(self.min_duty)
+            sleep(3)
+            print("Neutral duty ratio: %.1f\n" %self.default_duty)
             self.esc.ChangeDutyCycle(self.default_duty)
-            print("Default duty ratio: %.1f\n" %self.default_duty)
-
+            sleep(3)
+           
             print("Is the motor silent? y/n")
             yesorno = input()
             if yesorno == 'y':
