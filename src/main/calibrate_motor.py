@@ -1,7 +1,6 @@
 import sys
-sys.path.append('../ibrary/')
+sys.path.append('../library/')
 from selemod import Actuator
-import sys 
 
 pin_esc = 18
 pin_servo_1 = 23
