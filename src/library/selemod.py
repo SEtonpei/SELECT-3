@@ -100,19 +100,19 @@ class Actuator:
         print("\nsetting esc max pulse\n")
         print("Maximum duty ratio: %.1f\n" %self.max_duty)
 
-        print("connect battery and turn the switch ON.")
+        print("connect battery and turn the esc switch ON, then push Eneter key")
         inp = input()
         if inp == '':
             print("Wait for 10 seconds.")
             sleep(10)
-            print("Minimum duty ratio: %.1f\n" %self.min_duty)
+            print("Minimum (backward) duty ratio: %.1f\n" %self.min_duty)
             self.esc.ChangeDutyCycle(self.min_duty)
             sleep(3)
             print("Neutral duty ratio: %.1f\n" %self.default_duty)
             self.esc.ChangeDutyCycle(self.default_duty)
             sleep(3)
            
-            print("Did the motor beep melody? y/n")
+            print("Did the motor beep melody and the fan working? y/n")
             yesorno = input()
             if yesorno == 'y':
                 print("Calibration has completed.")
