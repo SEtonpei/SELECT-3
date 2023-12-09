@@ -8,7 +8,7 @@ from selemod import Actuator
 
 # instantiate actuator class 
 pin_esc = 18
-pin_servo = 23
+pin_servo = 12
 # pin_servo_2 = 24
 freq_esc = 50 
 freq_servo = 50
