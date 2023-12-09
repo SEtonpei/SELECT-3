@@ -71,9 +71,9 @@ class Resilience:
         self.lower_lim = 0 
         self.middle_lim1 = 0.6 * self.DISTANCE
         self.middle_lim2 = 0.8 * self.DISTANCE
-        self.upper_lim = 0.9 * self.DISTANCE 
-        self.throttle_A = 40 
-        self.throttle_B = 45
+        self.upper_lim = 0.9 * self.DISTANCE
+        self.throttle_A = 30
+        self.throttle_B = 35
         self.throttle_C = 25
         self.throttle_slowdown = 22
         self.throttle_D = -10 # if heli-mode cannot be used, use low rpm throttle instead  
@@ -97,7 +97,7 @@ class Resilience:
 
 
         # encoder pin setup & count, pos
-        # these variable are crucial to the mission, so manage these as instance variable of class 
+        # these variable are crucial to the mission, so manage these as instance variable of class git 
         # (not using as an argument so to manage across method)
         self.count = 0 
         self.pos = 0 
