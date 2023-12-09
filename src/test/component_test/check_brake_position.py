@@ -13,7 +13,7 @@ pin_servo = 12
 freq_esc = 50 
 freq_servo = 50
 brakeon_duty = 8.72 
-brakeoff_duty = 4.85
+brakeoff_duty = 3.85
 throttle_a0 = 5.15
 throttle_a1 = 0.047
 

@@ -65,7 +65,7 @@ class Resilience:
         self.freq_esc = 50 
         self.freq_servo = 50 
         self.brakeon_duty = 8.72
-        self.brakeoff_duty = 3.85
+        self.brakeoff_duty = 4.85
         self.current_throttle = 0
         self.target_throttle = 0  
         self.lower_lim = 0 
