@@ -22,7 +22,5 @@ pin_ec2_bottom = 20
 
 actu = Actuator(pin_esc=pin_esc, pin_servo=pin_servo, 
                         freq_esc=freq_esc, freq_servo=freq_servo, 
-                        brakeon_duty=brakeon_duty, brakeoff_duty=brakeoff_duty,
-                        throttle_a0=throttle_a0, throttle_a1=throttle_a1)
-
+                        brakeon_duty=brakeon_duty, brakeoff_duty=brakeoff_duty)
 actu.check_brake()
