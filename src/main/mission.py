@@ -191,6 +191,17 @@ class Resilience:
             # Top E2S
                 txt = "top e2s ON"
                 self._stop_sequence(txt)
+
+                self.actu.stop_esc(self.current_throttle)
+                self.mode = 1 
+                self.maxReachHeight = self.pos
+                print("Top switch on! Switching to mode 1")
+                sleep(1)
+                self.actu.new_throttle(self.throttle_D)
+                txt = "mode D"
+                print("mode change: ", txt)
+                print("setting throttle : %.1f\n" %self.throttle_D)
+                self.current_throttle = self.throttle_D
             
             if e2s_1_flag==1:
             # Bottom E2S
