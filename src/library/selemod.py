@@ -103,6 +103,7 @@ class Actuator:
         print("connect battery and turn the esc switch ON, then push the Eneter key in 10 seconds")
         inp = input()
         if inp == '':
+            sleep(12)
             print("Minimum (backward) duty ratio: %.1f\n" %self.min_duty)
             self.esc.ChangeDutyCycle(self.min_duty)
             sleep(3)
