@@ -104,7 +104,7 @@ class Actuator:
         inp = input()
         if inp == '':
             print("Wait for 10 seconds.")
-            sleep(10)
+            sleep(5)
             print("Minimum (backward) duty ratio: %.1f\n" %self.min_duty)
             self.esc.ChangeDutyCycle(self.min_duty)
             sleep(3)
