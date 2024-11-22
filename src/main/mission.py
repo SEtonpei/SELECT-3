@@ -76,7 +76,7 @@ class Resilience:
         self.throttle_B = 45
         self.throttle_C = 30
         self.throttle_slowdown = 22
-        self.throttle_D = -10 # if heli-mode cannot be used, use low rpm throttle instead  
+        self.throttle_D = -20 # if heli-mode cannot be used, use low rpm throttle instead  
 
         # instantiation 
         print("pin_servo: %.1f\n" %self.pin_servo)
