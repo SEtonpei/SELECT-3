@@ -12,6 +12,7 @@ freq_servo = 50
 brakeon_duty = 8.72 #4.85 + (9.85-4.85)*60/90
 brakeoff_duty = 4.85
 
+print("pin_servo_1: %.0i\n" %pin_servo_1)
 actu = selemod.Actuator(pin_esc=pin_esc, pin_servo_1=pin_servo_1, freq_esc=freq_esc, freq_servo=freq_servo, brakeon_duty=brakeon_duty, brakeoff_duty=brakeoff_duty)
 
 while True: 
