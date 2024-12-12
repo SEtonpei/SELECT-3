@@ -64,17 +64,17 @@ class Resilience:
         # motor motion setup
         self.freq_esc = 50 
         self.freq_servo = 50 
-        self.brakeon_duty = 8.72
-        self.brakeoff_duty = 3.85
+        self.brakeon_duty = 5.5
+        self.brakeoff_duty = 8
         self.current_throttle = 0
         self.target_throttle = 0  
         self.lower_lim = 0 
         self.middle_lim1 = 0.6 * self.DISTANCE
         self.middle_lim2 = 0.8 * self.DISTANCE
         self.upper_lim = 0.9 * self.DISTANCE
-        self.throttle_A = 40
-        self.throttle_B = 45
-        self.throttle_C = 40
+        self.throttle_A = 50
+        self.throttle_B = 55
+        self.throttle_C = 50
         self.throttle_slowdown = 22
         self.throttle_D = -45 # if heli-mode cannot be used, use low rpm throttle instead  
 
