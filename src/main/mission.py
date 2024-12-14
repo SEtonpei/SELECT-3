@@ -190,18 +190,7 @@ class Resilience:
             if e2s_0_flag==1: 
             # Top E2S
                 txt = "top e2s ON"
-                self._stop_sequence(txt)
-
-                self.actu.stop_esc(self.current_throttle)
-                self.mode = 1 
-                self.maxReachHeight = self.pos
-                print("Top switch on! Switching to mode 1")
-                sleep(1)
-                self.actu.new_throttle(self.throttle_D)
-                txt = "mode D"
-                print("mode change: ", txt)
-                print("setting throttle : %.1f\n" %self.throttle_D)
-                self.current_throttle = self.throttle_D
+                self._stop_sequence_decsend(txt)
             
             if e2s_1_flag==1:
             # Bottom E2S
@@ -244,6 +233,24 @@ class Resilience:
         #self.actu.check_brake()
         gpio.cleanup()
         sys.exit()                
+
+    def _stop_sequence_descend(self,txt):
+        print(txt)
+        self.actu.stop_esc(self.current_throttle)
+
+        self.mode = 1 
+        self.maxReachHeight = self.pos
+        print("Top switch on! Switching to mode 1")
+        sleep(1)
+        self.actu.new_throttle(self.throttle_D)
+        txt = "mode D"
+        print("mode change: ", txt)
+        print("setting throttle : %.1f\n" %self.throttle_D)
+        self.current_throttle = self.throttle_D
+
+        if self.pos < self.maxReachHeight*self.REDUCE_RATE: 
+            txt = "turning off motor and activate brake for 5sec"
+            self._stop_sequence(txt)
         
     def brake(self, servo_flag):
          """ 
