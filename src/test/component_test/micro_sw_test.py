@@ -32,7 +32,7 @@ while True:
       if bottom_sw_state == 1:
         print("bottom",bottom_sw_state)
 
-      sleep(1)
+      sleep(0.2)
   except KeyboardInterrupt:
      print("Operation was killed!")
      e2s_.destroy()
