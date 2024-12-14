@@ -72,11 +72,11 @@ class Resilience:
         self.middle_lim1 = 0.6 * self.DISTANCE
         self.middle_lim2 = 0.8 * self.DISTANCE
         self.upper_lim = 0.9 * self.DISTANCE
-        self.throttle_A = 50
-        self.throttle_B = 55
-        self.throttle_C = 50
+        self.throttle_A = 70
+        self.throttle_B = 80
+        self.throttle_C = 60
         self.throttle_slowdown = 22
-        self.throttle_D = -45 # if heli-mode cannot be used, use low rpm throttle instead  
+        self.throttle_D = -70 # if heli-mode cannot be used, use low rpm throttle instead  
 
         # instantiation 
         print("pin_servo: %.1f\n" %self.pin_servo)
@@ -197,7 +197,7 @@ class Resilience:
                 txt = "bottom e2s ON"
                 self._stop_sequence(txt)
             
-            # Remote switch (TWILITE) stop
+            # Remote switch (TWILITE) stop9
             if rmstop_flag == 0: 
                 txt = "remote stop switch ON"
                 self._stop_sequence(txt)
