@@ -3,6 +3,7 @@ import RPi.GPIO as gpio
 import smbus
 import spidev
 from time import sleep
+import time
 import selemod
 from math import pi 
 
@@ -72,11 +73,15 @@ class Resilience:
         self.middle_lim1 = 0.6 * self.DISTANCE
         self.middle_lim2 = 0.8 * self.DISTANCE
         self.upper_lim = 0.9 * self.DISTANCE
-        self.throttle_A = 80
+        self.throttle_A = 60
         self.throttle_B = 55
         self.throttle_C = 60
         self.throttle_slowdown = 22
         self.throttle_D = -40 # if heli-mode cannot be used, use low rpm throttle instead  
+
+        self.last_pos = None
+        self.last_time = time.time()
+        self.time_threshold = 5  # 5秒間変動がない場合
 
         # instantiation 
         print("pin_servo: %.1f\n" %self.pin_servo)
@@ -160,6 +165,11 @@ class Resilience:
             elif self.middle_lim2 <= self.pos < self.upper_lim:
                 txt = "mode C"
                 self.target_throttle = self.throttle_C
+
+            elif self.check_position_stability():
+                txt = "Position has not changed significantly for the threshold time. Descending starts."
+                self._stop_sequence_decsend(txt)
+
 
             if self.current_throttle != self.target_throttle: #change throttle value only if current throttle and target throttle is different
                 self.actu.new_throttle(self.target_throttle)
@@ -309,3 +319,17 @@ class Resilience:
                 self.actu.stop_esc(self.current_throttle)
                 txt = "Aborting the sequence"
                 self._stop_sequence(txt)
+
+    
+    def check_position_stability(self):
+        current_time = time.time()
+        truncated_pos = round(self.pos, 1)
+
+        if self.last_pos is not None and truncated_pos == self.last_pos:
+            if current_time - self.last_time >= self.time_threshold:
+                return True
+        else:
+            self.last_pos = truncated_pos
+            self.last_time = current_time
+
+        return False
