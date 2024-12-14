@@ -234,7 +234,7 @@ class Resilience:
         gpio.cleanup()
         sys.exit()                
 
-    def _stop_sequence_descend(self,txt):
+    def _stop_sequence_decsend(self,txt):
         print(txt)
         self.actu.stop_esc(self.current_throttle)
 
