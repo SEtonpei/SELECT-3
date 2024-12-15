@@ -77,7 +77,7 @@ class Resilience:
         self.throttle_B = 70
         self.throttle_C = 70
         self.throttle_slowdown = 22
-        self.throttle_D = -70 # if heli-mode cannot be used, use low rpm throttle instead  
+        self.throttle_D = -80 # if heli-mode cannot be used, use low rpm throttle instead  
 
         self.last_pos = None
         self.last_time = time.time()
