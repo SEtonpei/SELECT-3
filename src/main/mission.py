@@ -324,7 +324,7 @@ class Resilience:
     
     def check_position_stability(self):
         current_time = time.time()
-        truncated_pos = round(self.pos, 1)
+        truncated_pos = round(self.pos, 0)
         print("truncated_pos: ", truncated_pos)
 
         if self.last_pos is not None and truncated_pos == self.last_pos:
