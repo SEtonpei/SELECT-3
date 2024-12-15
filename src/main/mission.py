@@ -166,7 +166,8 @@ class Resilience:
                 txt = "mode C"
                 self.target_throttle = self.throttle_C
 
-            elif self.check_position_stability():
+
+            if self.check_position_stability():
                 txt = "Position has not changed significantly for the threshold time. Descending starts."
                 self._stop_sequence_decsend(txt)
 
