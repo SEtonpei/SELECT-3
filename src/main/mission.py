@@ -75,7 +75,7 @@ class Resilience:
         self.upper_lim = 0.9 * self.DISTANCE
         self.throttle_A = 70
         self.throttle_B = 70
-        self.throttle_C = 60
+        self.throttle_C = 70
         self.throttle_slowdown = 22
         self.throttle_D = -70 # if heli-mode cannot be used, use low rpm throttle instead  
 
