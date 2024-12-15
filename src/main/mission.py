@@ -324,6 +324,7 @@ class Resilience:
     def check_position_stability(self):
         current_time = time.time()
         truncated_pos = round(self.pos, 1)
+        print("time: ", current_time)
 
         if self.last_pos is not None and truncated_pos == self.last_pos:
             if current_time - self.last_time >= self.time_threshold:
