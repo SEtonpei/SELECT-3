@@ -73,11 +73,11 @@ class Resilience:
         self.middle_lim1 = 0.6 * self.DISTANCE
         self.middle_lim2 = 0.8 * self.DISTANCE
         self.upper_lim = 0.9 * self.DISTANCE
-        self.throttle_A = 60
-        self.throttle_B = 55
+        self.throttle_A = 70
+        self.throttle_B = 65
         self.throttle_C = 60
         self.throttle_slowdown = 22
-        self.throttle_D = -40 # if heli-mode cannot be used, use low rpm throttle instead  
+        self.throttle_D = -70 # if heli-mode cannot be used, use low rpm throttle instead  
 
         self.last_pos = None
         self.last_time = time.time()
@@ -325,7 +325,7 @@ class Resilience:
     def check_position_stability(self):
         current_time = time.time()
         truncated_pos = round(self.pos, 1)
-        print("time: ", current_time)
+        print("truncated_pos: ", truncated_pos)
 
         if self.last_pos is not None and truncated_pos == self.last_pos:
             if current_time - self.last_time >= self.time_threshold:
