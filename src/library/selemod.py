@@ -773,7 +773,9 @@ class LS7366R():
         for i in range(self.counterSize):
             EncoderCount = (EncoderCount << 8) + data[i+1]
 
-        if data[1] != 255:    
+        if data[1] != 255:
+            if EncoderCount > self.max_val:
+                EncoderCount = 0  # カウンターオーバーフロウを防ぐためにリセット
             return EncoderCount
         else:
             return (EncoderCount - (self.max_val+1))
